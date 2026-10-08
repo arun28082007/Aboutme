@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-primary: #fcfbf7;
+    --bg-card: #ffffff;
+    --text-primary: #121212;
+    --border-color: #000000;
+    --shadow-color: #000000;
+  }
+
+  .dark {
+    --bg-primary: #0e1015;
+    --bg-card: #181a20;
+    --text-primary: #f5f5f7;
+    --border-color: #f5f5f7;
+    --shadow-color: #ffe600;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background-color: #ffe600;
+    color: #000000;
+  }
+}
+
+/* Neobrutalist custom shadows & tactile animations */
+.neo-border {
+  border: 2.5px solid #000000;
+}
+.dark .neo-border {
+  border: 2.5px solid #ffffff;
+}
+
+.neo-shadow {
+  box-shadow: 5px 5px 0px 0px #000000;
+}
+.dark .neo-shadow {
+  box-shadow: 5px 5px 0px 0px #ffffff;
+}
+
+.neo-shadow-yellow {
+  box-shadow: 5px 5px 0px 0px #ffe600;
+}
+
+.neo-shadow-cyan {
+  box-shadow: 5px 5px 0px 0px #00f0ff;
+}
+
+.neo-shadow-pink {
+  box-shadow: 5px 5px 0px 0px #ff2a85;
+}
+
+.neo-shadow-green {
+  box-shadow: 5px 5px 0px 0px #10b981;
+}
+
+.neo-shadow-sm {
+  box-shadow: 3px 3px 0px 0px #000000;
+}
+.dark .neo-shadow-sm {
+  box-shadow: 3px 3px 0px 0px #ffffff;
+}
+
+.neo-shadow-lg {
+  box-shadow: 8px 8px 0px 0px #000000;
+}
+.dark .neo-shadow-lg {
+  box-shadow: 8px 8px 0px 0px #ffffff;
+}
+
+.neo-btn {
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 120ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+.dark .neo-btn:hover {
+  box-shadow: 6px 6px 0px 0px #ffffff;
+}
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+.dark .neo-btn:active {
+  box-shadow: 2px 2px 0px 0px #ffffff;
+}
+
+/* Marquee infinite scroll */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 24s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f0ea;
+  border-left: 2px solid #000;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #12141a;
+  border-left: 2px solid #333;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffe600;
+  border: 2px solid #000;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #00f0ff;
+  border: 2px solid #fff;
+}
